@@ -19,9 +19,10 @@ package com.example.android.trackmysleepquality.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlin.coroutines.CoroutineContext
 
 @Entity(tableName = "daily_sleep_quality_table")
-data class SleepNight(
+abstract class SleepNight(
 
     @PrimaryKey(autoGenerate = true)
     var nightId: Long = 0L,
@@ -34,4 +35,4 @@ data class SleepNight(
 
     @ColumnInfo(name = "quality_rating")
     var sleepQuality: Int = -1
-)
+) : CoroutineContext
