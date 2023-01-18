@@ -22,7 +22,7 @@ import androidx.room.PrimaryKey
 import kotlin.coroutines.CoroutineContext
 
 @Entity(tableName = "daily_sleep_quality_table")
-abstract class SleepNight(
+data class SleepNight(
 
     @PrimaryKey(autoGenerate = true)
     var nightId: Long = 0L,
@@ -35,4 +35,17 @@ abstract class SleepNight(
 
     @ColumnInfo(name = "quality_rating")
     var sleepQuality: Int = -1
-) : CoroutineContext
+)
+    : CoroutineContext {
+    override fun <R> fold(initial: R, operation: (R, CoroutineContext.Element) -> R): R {
+        TODO("Not yet implemented")
+    }
+
+    override fun <E : CoroutineContext.Element> get(key: CoroutineContext.Key<E>): E? {
+        TODO("Not yet implemented")
+    }
+
+    override fun minusKey(key: CoroutineContext.Key<*>): CoroutineContext {
+        TODO("Not yet implemented")
+    }
+}
